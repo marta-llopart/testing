@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dev Playground</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="noise"></div>
+
+  <header>
+    <div class="logo">
+      <span class="logo-bracket">{</span>
+      <span class="logo-text">playground</span>
+      <span class="logo-bracket">}</span>
+    </div>
+    <nav>
+      <a href="#" class="nav-link active" data-section="home">inicio</a>
+      <a href="#" class="nav-link" data-section="components">componentes</a>
+      <a href="#" class="nav-link" data-section="api">api test</a>
+    </nav>
+    <div class="status-bar">
+      <span class="status-dot"></span>
+      <span class="status-text">listo</span>
+    </div>
+  </header>
+
+  <main>
+    <!-- HOME SECTION -->
+    <section id="home" class="section active">
+      <div class="hero">
+        <div class="hero-label">v1.0.0 — github + claude code</div>
+        <h1 class="hero-title">
+          <span class="line">Dev</span>
+          <span class="line accent">Playground</span>
+        </h1>
+        <p class="hero-sub">Un entorno de pruebas para experimentar con HTML, CSS y JS. Ideal para probar ideas antes de subirlas a producción.</p>
+        <div class="hero-actions">
+          <button class="btn btn-primary" id="startBtn">Empezar a explorar</button>
+          <button class="btn btn-ghost" id="consoleBtn">Abrir consola</button>
+        </div>
+      </div>
+
+      <div class="cards-grid">
+        <div class="card" data-delay="0">
+          <div class="card-icon">⚡</div>
+          <h3>Rápido</h3>
+          <p>Sin dependencias externas. Carga al instante en cualquier entorno.</p>
+        </div>
+        <div class="card" data-delay="100">
+          <div class="card-icon">🧪</div>
+          <h3>Modular</h3>
+          <p>Organizado en secciones para probar HTML, CSS y JS por separado.</p>
+        </div>
+        <div class="card" data-delay="200">
+          <div class="card-icon">🔗</div>
+          <h3>Git Ready</h3>
+          <p>Estructura pensada para trabajar con GitHub y Claude Code desde el día uno.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMPONENTS SECTION -->
+    <section id="components" class="section">
+      <div class="section-header">
+        <h2>Componentes</h2>
+        <p>Prueba y modifica estos elementos base</p>
+      </div>
+
+      <div class="components-grid">
+        <div class="comp-block">
+          <div class="comp-label">Botones</div>
+          <div class="comp-demo">
+            <button class="btn btn-primary">Primario</button>
+            <button class="btn btn-secondary">Secundario</button>
+            <button class="btn btn-ghost">Ghost</button>
+            <button class="btn btn-danger">Danger</button>
+          </div>
+        </div>
+
+        <div class="comp-block">
+          <div class="comp-label">Inputs</div>
+          <div class="comp-demo column">
+            <input type="text" class="input" placeholder="Escribe algo..." />
+            <input type="email" class="input" placeholder="correo@ejemplo.com" />
+            <select class="input">
+              <option>Opción 1</option>
+              <option>Opción 2</option>
+              <option>Opción 3</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="comp-block">
+          <div class="comp-label">Badges</div>
+          <div class="comp-demo">
+            <span class="badge badge-green">activo</span>
+            <span class="badge badge-yellow">pendiente</span>
+            <span class="badge badge-red">error</span>
+            <span class="badge badge-blue">info</span>
+          </div>
+        </div>
+
+        <div class="comp-block">
+          <div class="comp-label">Toggle</div>
+          <div class="comp-demo">
+            <label class="toggle">
+              <input type="checkbox" checked />
+              <span class="toggle-track"><span class="toggle-thumb"></span></span>
+              <span>Opción A</span>
+            </label>
+            <label class="toggle">
+              <input type="checkbox" />
+              <span class="toggle-track"><span class="toggle-thumb"></span></span>
+              <span>Opción B</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="comp-block full">
+          <div class="comp-label">Progreso</div>
+          <div class="comp-demo column">
+            <div class="progress-wrap">
+              <span>Tarea 1</span>
+              <div class="progress-bar"><div class="progress-fill" style="width: 75%"></div></div>
+              <span>75%</span>
+            </div>
+            <div class="progress-wrap">
+              <span>Tarea 2</span>
+              <div class="progress-bar"><div class="progress-fill" style="width: 42%"></div></div>
+              <span>42%</span>
+            </div>
+            <div class="progress-wrap">
+              <span>Tarea 3</span>
+              <div class="progress-bar"><div class="progress-fill" style="width: 90%"></div></div>
+              <span>90%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- API TEST SECTION -->
+    <section id="api" class="section">
+      <div class="section-header">
+        <h2>API Test</h2>
+        <p>Prueba llamadas a APIs y visualiza respuestas</p>
+      </div>
+
+      <div class="api-tester">
+        <div class="api-row">
+          <select class="input method-select" id="methodSelect">
+            <option>GET</option>
+            <option>POST</option>
+            <option>PUT</option>
+            <option>DELETE</option>
+          </select>
+          <input type="text" class="input url-input" id="urlInput" placeholder="https://jsonplaceholder.typicode.com/posts/1" />
+          <button class="btn btn-primary" id="sendBtn">Enviar</button>
+        </div>
+
+        <div class="api-output">
+          <div class="output-header">
+            <span class="comp-label">Respuesta</span>
+            <span class="status-pill" id="statusPill">—</span>
+          </div>
+          <pre class="code-block" id="responseOutput">// La respuesta aparecerá aquí...</pre>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- CONSOLE DRAWER -->
+  <div class="console-drawer" id="consoleDrawer">
+    <div class="console-header">
+      <span>consola</span>
+      <button class="console-close" id="consoleClose">✕</button>
+    </div>
+    <div class="console-body" id="consoleBody">
+      <div class="console-line info">→ Consola inicializada. Escribe comandos JS abajo.</div>
+    </div>
+    <div class="console-input-row">
+      <span class="console-prompt">›</span>
+      <input type="text" class="console-input" id="consoleInput" placeholder="document.title = 'Hola mundo'" />
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
